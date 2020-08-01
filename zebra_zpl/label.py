@@ -10,11 +10,9 @@ class Label:
         self.copies = copies
 
         self.elements = []
-    
 
     def add(self, element):
         self.elements.append(element)
-    
 
     def dump_contents(self, io=sys.stdout):
         # check_required_configurations

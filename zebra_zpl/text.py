@@ -15,7 +15,6 @@ class Text(Printable):
         super().__init__(data, **kwargs)
 
         self.check_attributes()
-    
 
     def to_zpl(self):
         zpl = f'^FW{self.rotation}'
@@ -24,8 +23,7 @@ class Text(Printable):
         zpl += f'^FB{self.width},{self.max_lines},{self.line_spacing},{self.justification},{self.hanging_indent}'
         zpl += f'^FD{self.data}^FS'
         return zpl
-    
-    
+
     def check_attributes(self):
         if not (0 <= self.font_size <= 32000):
             raise ValueError(f'Invalid font size: {self.font_size}')

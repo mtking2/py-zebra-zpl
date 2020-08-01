@@ -13,7 +13,6 @@ class Barcode(Printable):
         
         super().__init__(data, **kwargs)
 
-
     def to_zpl(self):
         zpl = f'^FW{self.rotation}'
         zpl += f'^FO{self.x},{self.y}'

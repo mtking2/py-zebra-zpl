@@ -1,8 +1,12 @@
 import sys
+from .printable import Printable
+
+class InvalidElementError(Exception):
+    pass
 
 class Label:
 
-    def __init__(self, width=100, length=100, dpi=203, print_speed=5, copies=1):
+    def __init__(self, width=100, length=100, dpi=203, print_speed=2, copies=1):
         self.width = width
         self.length = length
         self.dpi = dpi
@@ -12,6 +16,7 @@ class Label:
         self.elements = []
 
     def add(self, element):
+        self.check_element(element)
         self.elements.append(element)
 
     def dump_contents(self, io=sys.stdout):
@@ -37,4 +42,6 @@ class Label:
         # End format
         io.write('^XZ')
 
-        io.close()
+    def check_element(self, element):
+        if not isinstance(element, Printable):
+            raise InvalidElementError(f'Label elements must be a Printable (supported instance of the Printable class): {element}')

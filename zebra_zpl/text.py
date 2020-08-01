@@ -2,7 +2,7 @@ from .printable import Printable
 
 class Text(Printable):
 
-    def __init__(self, data, **kwargs):
+    def __init__(self, data='', **kwargs):
         
         self.font_type = '0'
         self.font_size = 12

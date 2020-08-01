@@ -30,5 +30,5 @@ See [CHANGELOG.md](CHANGELOG.md) for a list of changes by version.
 
 ## References
 
-###### This libary is based on the [zebra-zpl](https://github.com/bbulpett/zebra-zpl) Ruby gem and is meant to serve as a Python3 equivilant to that gem.
+###### This library is based on the [zebra-zpl](https://github.com/bbulpett/zebra-zpl) Ruby gem and is meant to serve as a Python3 equivilant to that gem.
 * [Zebra Technologies Corporation, _"ZPL II Programming Guide."_ 2019 PDF](https://www.zebra.com/content/dam/zebra/manuals/printers/common/programming/zpl-zbi2-pm-en.pdf)

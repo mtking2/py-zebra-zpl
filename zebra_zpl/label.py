@@ -40,7 +40,7 @@ class Label:
         # Specify how many copies to print
         io.write(f'^PQ{self.copies}')
         # End format
-        io.write('^XZ')
+        io.write('^XZ\n')
 
     def check_element(self, element):
         if not isinstance(element, Printable):

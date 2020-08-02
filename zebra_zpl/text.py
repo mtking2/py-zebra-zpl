@@ -1,15 +1,14 @@
+import re
 from .printable import Printable
 
 class Text(Printable):
 
-    def __init__(self, data='', **kwargs):
+    def __init__(self, data, **kwargs):
         
-        self.font_type = '0'
+        self.font_type = 0
         self.font_size = 12
         self.max_lines = 1
         self.line_spacing = 0
-        self.rotation = 'N'
-        self.justification = 'L'
         self.hanging_indent = 0
 
         super().__init__(data, **kwargs)
@@ -25,5 +24,9 @@ class Text(Printable):
         return zpl
 
     def check_attributes(self):
+        super().check_attributes()
+        
+        if not re.match(r'^[A-Z0-9]$', str(self.font_type)):
+            raise ValueError(f'invalid font type: {self.font_type}')
         if not (0 <= self.font_size <= 32000):
-            raise ValueError(f'Invalid font size: {self.font_size}')
+            raise ValueError(f'invalid font size: {self.font_size}')

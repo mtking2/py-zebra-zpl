@@ -5,14 +5,14 @@ from zebra_zpl.printable import Printable
 
 def test_init():
     label = Label(width=100, length=200)
-    assert label.width == 100
-    assert label.length == 200
-    assert label.print_speed == 2
-    assert label.copies == 1
+    assert label.width is 100
+    assert label.length is 200
+    assert label.print_speed is 2
+    assert label.copies is 1
 
 def test_add():
     label = Label(width=100, length=200)
-    t = Text()
+    t = Text('abc')
     label.add(t)
     assert len(label.elements) > 0
     assert isinstance(label.elements[0], Printable)

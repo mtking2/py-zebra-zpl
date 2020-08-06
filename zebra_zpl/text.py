@@ -13,18 +13,18 @@ class Text(Printable):
 
         super().__init__(data, **kwargs)
 
-        self.check_attributes()
+        self._check_attributes()
 
     def to_zpl(self):
-        zpl = f'^FW{self.rotation}'
+        zpl = f'^FW{self.orientation}'
         zpl += f'^CF{self.font_type},{self.font_size}'
         zpl += f'^CI28^FO{self.x},{self.y}'
         zpl += f'^FB{self.width},{self.max_lines},{self.line_spacing},{self.justification},{self.hanging_indent}'
         zpl += f'^FD{self.data}^FS'
         return zpl
 
-    def check_attributes(self):
-        super().check_attributes()
+    def _check_attributes(self):
+        super()._check_attributes()
         
         if not re.match(r'^[A-Z0-9]$', str(self.font_type)):
             raise ValueError(f'invalid font type: {self.font_type}')

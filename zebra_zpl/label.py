@@ -16,11 +16,10 @@ class Label:
         self.elements = []
 
     def add(self, element):
-        self.check_element(element)
+        self._check_element(element)
         self.elements.append(element)
 
     def dump_contents(self, io=sys.stdout):
-        # check_required_configurations
         # Start format
         io.write('^XA')
         # ^LL<label height in dots>,<space between labels in dots>
@@ -42,6 +41,6 @@ class Label:
         # End format
         io.write('^XZ\n')
 
-    def check_element(self, element):
+    def _check_element(self, element):
         if not isinstance(element, Printable):
             raise InvalidElementError(f'Label elements must be a Printable (supported instance of the Printable class): {element}')
